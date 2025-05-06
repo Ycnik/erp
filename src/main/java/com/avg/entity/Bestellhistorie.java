@@ -1,4 +1,4 @@
-package com.avg.crm.entity;
+package com.avg.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;

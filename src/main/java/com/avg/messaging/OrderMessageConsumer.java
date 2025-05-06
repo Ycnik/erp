@@ -1,6 +1,6 @@
-package com.avg.crm.messaging;
+package com.avg.messaging;
 
-import com.avg.crm.entity.Bestellhistorie;
+import com.avg.entity.Bestellhistorie;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.*;
 

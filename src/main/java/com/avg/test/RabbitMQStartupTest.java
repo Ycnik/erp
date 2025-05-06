@@ -1,6 +1,6 @@
-package com.avg.crm.test;
+package com.avg.test;
 
-import com.avg.crm.entity.Bestellhistorie;
+import com.avg.entity.Bestellhistorie;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

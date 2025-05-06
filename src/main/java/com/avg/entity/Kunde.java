@@ -1,4 +1,4 @@
-package com.avg.crm.entity;
+package com.avg.entity;
 
 public class Kunde {
     private String customerID;
