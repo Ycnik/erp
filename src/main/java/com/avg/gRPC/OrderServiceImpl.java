@@ -1,4 +1,4 @@
-package com.avg;
+package com.avg.gRPC;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -6,9 +6,10 @@ import io.grpc.stub.StreamObserver;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
-
 import com.avg.Service.BestellabwicklungService;
 import com.avg.entity.Bestellabwicklung;
+import com.avg.gRPC.generated.GRPC;
+import com.avg.gRPC.generated.OrderServiceGrpc;
 
 @Service
 public class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
@@ -21,7 +22,7 @@ public class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
                 .addService(this)
                 .build()
                 .start();
-        System.out.println("GRPC: OrderService läuft auf Port 50052");
+        System.out.println("GRPC: OrderService laeuft auf Port 50052");
     }
 
     @PreDestroy

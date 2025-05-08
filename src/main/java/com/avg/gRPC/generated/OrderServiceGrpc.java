@@ -1,6 +1,9 @@
-package com.avg;
+package com.avg.gRPC.generated;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
+
+import com.avg.gRPC.generated.GRPC.KaufauftragReply;
+import com.avg.gRPC.generated.GRPC.KaufauftragRequest;
 
 /**
  * <pre>
@@ -18,29 +21,29 @@ public final class OrderServiceGrpc {
   public static final String SERVICE_NAME = "com.avg.OrderService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.avg.GRPC.KaufauftragRequest,
-      com.avg.GRPC.KaufauftragReply> getNewOrderMethod;
+  private static volatile io.grpc.MethodDescriptor<com.avg.gRPC.generated.GRPC.KaufauftragRequest,
+      com.avg.gRPC.generated.GRPC.KaufauftragReply> getNewOrderMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "newOrder",
-      requestType = com.avg.GRPC.KaufauftragRequest.class,
-      responseType = com.avg.GRPC.KaufauftragReply.class,
+      requestType = com.avg.gRPC.generated.GRPC.KaufauftragRequest.class,
+      responseType = com.avg.gRPC.generated.GRPC.KaufauftragReply.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.avg.GRPC.KaufauftragRequest,
-      com.avg.GRPC.KaufauftragReply> getNewOrderMethod() {
-    io.grpc.MethodDescriptor<com.avg.GRPC.KaufauftragRequest, com.avg.GRPC.KaufauftragReply> getNewOrderMethod;
+  public static io.grpc.MethodDescriptor<com.avg.gRPC.generated.GRPC.KaufauftragRequest,
+      com.avg.gRPC.generated.GRPC.KaufauftragReply> getNewOrderMethod() {
+    io.grpc.MethodDescriptor<com.avg.gRPC.generated.GRPC.KaufauftragRequest, com.avg.gRPC.generated.GRPC.KaufauftragReply> getNewOrderMethod;
     if ((getNewOrderMethod = OrderServiceGrpc.getNewOrderMethod) == null) {
       synchronized (OrderServiceGrpc.class) {
         if ((getNewOrderMethod = OrderServiceGrpc.getNewOrderMethod) == null) {
           OrderServiceGrpc.getNewOrderMethod = getNewOrderMethod =
-              io.grpc.MethodDescriptor.<com.avg.GRPC.KaufauftragRequest, com.avg.GRPC.KaufauftragReply>newBuilder()
+              io.grpc.MethodDescriptor.<com.avg.gRPC.generated.GRPC.KaufauftragRequest, com.avg.gRPC.generated.GRPC.KaufauftragReply>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "newOrder"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.avg.GRPC.KaufauftragRequest.getDefaultInstance()))
+                  com.avg.gRPC.generated.GRPC.KaufauftragRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.avg.GRPC.KaufauftragReply.getDefaultInstance()))
+                  com.avg.gRPC.generated.GRPC.KaufauftragReply.getDefaultInstance()))
               .setSchemaDescriptor(new OrderServiceMethodDescriptorSupplier("newOrder"))
               .build();
         }
@@ -105,8 +108,8 @@ public final class OrderServiceGrpc {
      * Kaufauftrag verarbeiten
      * </pre>
      */
-    public void newOrder(com.avg.GRPC.KaufauftragRequest request,
-        io.grpc.stub.StreamObserver<com.avg.GRPC.KaufauftragReply> responseObserver) {
+    public void newOrder(com.avg.gRPC.generated.GRPC.KaufauftragRequest request,
+        io.grpc.stub.StreamObserver<com.avg.gRPC.generated.GRPC.KaufauftragReply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNewOrderMethod(), responseObserver);
     }
 
@@ -116,8 +119,8 @@ public final class OrderServiceGrpc {
             getNewOrderMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.avg.GRPC.KaufauftragRequest,
-                com.avg.GRPC.KaufauftragReply>(
+                com.avg.gRPC.generated.GRPC.KaufauftragRequest,
+                com.avg.gRPC.generated.GRPC.KaufauftragReply>(
                   this, METHODID_NEW_ORDER)))
           .build();
     }
@@ -145,8 +148,8 @@ public final class OrderServiceGrpc {
      * Kaufauftrag verarbeiten
      * </pre>
      */
-    public void newOrder(com.avg.GRPC.KaufauftragRequest request,
-        io.grpc.stub.StreamObserver<com.avg.GRPC.KaufauftragReply> responseObserver) {
+    public void newOrder(com.avg.gRPC.generated.GRPC.KaufauftragRequest request,
+        io.grpc.stub.StreamObserver<com.avg.gRPC.generated.GRPC.KaufauftragReply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getNewOrderMethod(), getCallOptions()), request, responseObserver);
     }
@@ -174,7 +177,7 @@ public final class OrderServiceGrpc {
      * Kaufauftrag verarbeiten
      * </pre>
      */
-    public com.avg.GRPC.KaufauftragReply newOrder(com.avg.GRPC.KaufauftragRequest request) {
+    public com.avg.gRPC.generated.GRPC.KaufauftragReply newOrder(com.avg.gRPC.generated.GRPC.KaufauftragRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getNewOrderMethod(), getCallOptions(), request);
     }
@@ -202,8 +205,8 @@ public final class OrderServiceGrpc {
      * Kaufauftrag verarbeiten
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.avg.GRPC.KaufauftragReply> newOrder(
-        com.avg.GRPC.KaufauftragRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.avg.gRPC.generated.GRPC.KaufauftragReply> newOrder(
+        com.avg.gRPC.generated.GRPC.KaufauftragRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getNewOrderMethod(), getCallOptions()), request);
     }
@@ -229,8 +232,8 @@ public final class OrderServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_NEW_ORDER:
-          serviceImpl.newOrder((com.avg.GRPC.KaufauftragRequest) request,
-              (io.grpc.stub.StreamObserver<com.avg.GRPC.KaufauftragReply>) responseObserver);
+          serviceImpl.newOrder((com.avg.gRPC.generated.GRPC.KaufauftragRequest) request,
+              (io.grpc.stub.StreamObserver<com.avg.gRPC.generated.GRPC.KaufauftragReply>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -254,7 +257,7 @@ public final class OrderServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.avg.GRPC.getDescriptor();
+      return com.avg.gRPC.generated.GRPC.getDescriptor();
     }
 
     @java.lang.Override
