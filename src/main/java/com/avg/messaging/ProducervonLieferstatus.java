@@ -1,45 +1,22 @@
 package com.avg.messaging;
 
-import com.avg.entity.Bestellabwicklung.OrderStatus;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.Channel;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProducervonLieferstatus {
 
-    private final static String QUEUE_NAME = "erp-to-ecommerce-queue";
+    private final RabbitTemplate rabbitTemplate;
 
-    public static void sendlieferstatus() throws Exception {
-        System.out.println("Programm gestartet");
+    public static final String EXCHANGE_NAME = RabbitConfig.EXCHANGE_NAME;
+    public static final String ROUTING_KEY = RabbitConfig.ROUTING_KEY;
 
-        // Beispielhafte alte und neue Statuswerte (kannst du nach Bedarf ändern)
-        OrderStatus alterStatus = OrderStatus.SHIPPED;
-        OrderStatus neuerStatus = OrderStatus.PROCESSED;
-        String orderId = "ORD123";
-
-        if (statusHatSichGeaendert(alterStatus, neuerStatus)) {
-            sendeStatusUpdate(orderId, neuerStatus);
-        } else {
-            System.out.println(" [i] Kein Versand  Status hat sich nicht geändert.");
-        }
+    public ProducervonLieferstatus(RabbitTemplate rabbitTemplate) {
+        this.rabbitTemplate = rabbitTemplate;
     }
 
-    private static boolean statusHatSichGeaendert(OrderStatus alterStatus, OrderStatus neuerStatus) {
-        return !alterStatus.equals(neuerStatus);
-    }
-
-    private static void sendeStatusUpdate(String orderId, OrderStatus neuerStatus) throws Exception {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
-
-        try (Connection connection = factory.newConnection();
-             Channel channel = connection.createChannel()) {
-
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-            String message = "Lieferstatus für Bestellung " + orderId + " ist jetzt " + neuerStatus;
-            channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-
-            System.out.println(" [x] Sent: '" + message + "'");
-        }
+    public void sendUpdatetoEcommerce(DeliveryStatusMessage message) {
+        rabbitTemplate.convertAndSend(EXCHANGE_NAME, ROUTING_KEY, message);
+        System.out.println("ERP Message sent: " + message.getOrderId());
     }
 }

@@ -143,6 +143,7 @@ plugins {
     pmd
     jacoco
     `project-report`
+    //id("com.google.protobuf") version "0.9.4" // Protobuf Plugin für Gradle
 
     // https://plugins.gradle.org
     // BEACHTE: Plugins muessen statisch definiert sein https://docs.gradle.org/current/userguide/plugins.html#plugins_dsl_limitations
@@ -217,6 +218,7 @@ plugins {
     // https://github.com/jaredsburrows/gradle-license-plugin
     // https://github.com/hierynomus/license-gradle-plugin
 }
+
 
 defaultTasks = mutableListOf("compileTestJava")
 group = "com.acme"
